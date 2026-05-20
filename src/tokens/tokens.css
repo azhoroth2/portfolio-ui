@@ -1,0 +1,195 @@
+/* ================================================================
+   PORTFOLIO DESIGN TOKENS
+   Extracted from azhoroth2/Portfolio · main.css
+   12-Token Palette: Void, Obsidian, Charcoal, Slate, Ash, Bone,
+   Parchment, Warm White, Amber, Gold, Dusty Blue, Mist
+   ================================================================ */
+
+/* ---------- Reset (scoped to Storybook story wrapper) ---------- */
+.sb-story *,
+.sb-story *::before,
+.sb-story *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Design Tokens: Dark Theme (Default) ---------- */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --color-bg-primary: #131313;
+  --color-bg-secondary: #1c1b1b;
+  --color-bg-tertiary: #201f1f;
+  --color-bg-elevated: #2a2a2a;
+  --color-bg-surface: rgba(255, 255, 255, 0.03);
+  --color-bg-surface-hover: rgba(255, 255, 255, 0.06);
+
+  /* Accents */
+  --color-accent-warm: #f5c518;
+  --color-accent-warm-hover: #ffd740;
+  --color-accent-warm-muted: rgba(245, 197, 24, 0.14);
+  --color-accent-cool: #00dbe9;
+  --color-accent-cool-hover: #7df4ff;
+  --color-accent-cool-muted: rgba(0, 219, 233, 0.12);
+
+  /* Text */
+  --color-text-primary: #e5e2e1;
+  --color-text-secondary: #c6c9ab;
+  --color-text-tertiary: #909378;
+  --color-text-inverse: #1a1400;
+
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+  --color-border-accent: rgba(0, 219, 233, 0.28);
+
+  /* Semantic */
+  --color-success: #8a9e8f;
+  --color-error: #b87070;
+  --color-warning: #d4a84a;
+
+  /* Nav */
+  --color-nav-scrolled: rgba(19, 19, 19, 0.55);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.6);
+  --shadow-glow-warm: 0 0 30px rgba(245, 197, 24, 0.14);
+  --shadow-glow-cool: 0 0 30px rgba(0, 219, 233, 0.10);
+}
+
+/* ---------- Design Tokens: Light Theme ---------- */
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Backgrounds */
+  --color-bg-primary: #f2f0e8;
+  --color-bg-secondary: #f9f7f1;
+  --color-bg-tertiary: #e8e5dc;
+  --color-bg-elevated: #fdfcf9;
+  --color-bg-surface: rgba(0, 0, 0, 0.025);
+  --color-bg-surface-hover: rgba(0, 0, 0, 0.05);
+
+  /* Accents */
+  --color-accent-warm: #1a1a14;
+  --color-accent-warm-hover: #2e2e20;
+  --color-accent-warm-muted: rgba(26, 26, 20, 0.08);
+  --color-accent-cool: #004f54;
+  --color-accent-cool-hover: #006870;
+  --color-accent-cool-muted: rgba(0, 79, 84, 0.09);
+
+  /* Text */
+  --color-text-primary: #1a1b14;
+  --color-text-secondary: #524f45;
+  --color-text-tertiary: #7a7670;
+  --color-text-inverse: #f9f7f1;
+
+  /* Borders */
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-border-accent: rgba(0, 79, 84, 0.28);
+
+  /* Semantic */
+  --color-success: #5e8464;
+  --color-error: #a85a50;
+  --color-warning: #9a8438;
+
+  /* Nav */
+  --color-nav-scrolled: rgba(242, 240, 232, 0.60);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.09);
+  --shadow-xl: 0 16px 50px rgba(0, 0, 0, 0.11);
+  --shadow-glow-warm: 0 0 30px rgba(26, 26, 20, 0.08);
+  --shadow-glow-cool: 0 0 30px rgba(58, 74, 77, 0.08);
+}
+
+/* ---------- Shared Tokens ---------- */
+:root {
+  /* Typography */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Type Scale (fluid clamp) */
+  --text-xs: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+  --text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.9rem);
+  --text-base: clamp(0.9rem, 0.85rem + 0.4vw, 1.0625rem);
+  --text-lg: clamp(1rem, 0.9rem + 0.5vw, 1.2rem);
+  --text-xl: clamp(1.2rem, 1rem + 0.8vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-4xl: clamp(2.5rem, 1.8rem + 3vw, 4rem);
+  --text-5xl: clamp(3rem, 2rem + 4vw, 5rem);
+
+  /* Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Leading */
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+  --leading-heading: 1.15;
+
+  /* Tracking */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.04em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 48px;
+  --radius-full: 9999px;
+
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Duration */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+
+  /* Containers */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
+
+  --nav-height: 72px;
+}

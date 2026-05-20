@@ -208,7 +208,9 @@ a.project-card__tag:hover {
 }
 
 [data-theme="dark"] .stack-card {
-  --card-color: #201f1f;
+  --card-color: #201f1f !important;
+  --stack-title-color: #f9f7f1;
+  --stack-tagline-color: rgba(249, 247, 241, 0.8);
 }
 
 .stack-card--wide {
@@ -266,14 +268,10 @@ a.project-card__tag:hover {
   letter-spacing: var(--tracking-tight);
 }
 
-[data-theme="dark"] .stack-card .project-card--stack__title {
-  --stack-title-color: #f9f7f1;
-}
-
 .project-card--stack__tagline {
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  color: var(--stack-tagline-color, var(--color-text-secondary));
   line-height: var(--leading-normal);
 }
 

@@ -1,0 +1,25 @@
+/* ================================================================
+   INTERACTIVE DOT GRID CANVAS
+   Extracted from azhoroth2/Portfolio · main.css
+   ================================================================ */
+
+.homepage-canvas {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.dot-grid-canvas {
+  position: absolute; /* relative to container in stories */
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+[data-theme="dark"] .dot-grid-canvas {
+  opacity: 0.6;
+}

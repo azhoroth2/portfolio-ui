@@ -1,0 +1,24 @@
+/* ================================================================
+   CUSTOM CURSOR WITH MOTION BLUR (CURZR)
+   ================================================================ */
+
+.curzr {
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 2147483647;
+  position: fixed;
+  display: block;
+}
+
+/* Hide standard cursor when custom cursor is active */
+body.custom-cursor-active {
+  cursor: none;
+}
+
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active input,
+body.custom-cursor-active textarea,
+body.custom-cursor-active [role="button"] {
+  cursor: none !important;
+}

@@ -1,0 +1,43 @@
+/* ================================================================
+   CATEGORY FILTER & TAG FILTER
+   Extracted from azhoroth2/Portfolio · main.css
+   ================================================================ */
+
+/* ---- Shared pill row ---- */
+.category-filter,
+.tag-filter {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+}
+
+/* ---- Filter button ---- */
+.category-filter__btn,
+.tag-filter__btn {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: all var(--duration-fast) var(--ease-out-quart);
+}
+
+.category-filter__btn:hover,
+.tag-filter__btn:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+}
+
+.category-filter__btn--active,
+.tag-filter__btn--active {
+  background: var(--color-accent-warm);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent-warm);
+}
+
+

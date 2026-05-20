@@ -1,0 +1,317 @@
+/* ================================================================
+   OUTLINE PANEL (Case Study Table of Contents)
+   Extracted from azhoroth2/Portfolio · main.css
+   ================================================================ */
+
+/* Outline elements: suppress native cursor so custom cursor shows cleanly */
+.outline-pill,
+.outline-panel,
+.outline-panel__link {
+  cursor: none;
+}
+
+/* --- Outer wrapper: fixed LEFT side, vertically centered on desktop --- */
+.outline-wrap {
+  position: fixed;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.outline-wrap.is-active {
+  display: flex;
+  opacity: 1; /* always show in storybook for visualization */
+  pointer-events: auto;
+  transition: opacity 0.35s ease;
+}
+
+/* --- List panel (RIGHT of pill, desktop hover-reveal) --- */
+.outline-panel {
+  order: 1;
+  width: 180px;
+  max-height: 72vh;
+  overflow-y: auto;
+  padding: var(--space-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+  scrollbar-width: none;
+}
+.outline-panel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Desktop hover — reveal panel to the right */
+@media (hover: hover) {
+  .outline-wrap:hover .outline-panel {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+}
+
+.outline-wrap.drawer-open .outline-panel {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* --- Circular icon pill (desktop) — LEFT of panel --- */
+.outline-pill {
+  order: 0;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-nav-scrolled);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--shadow-lg);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+  white-space: nowrap;
+  gap: 7px;
+}
+
+.outline-pill svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+}
+
+.outline-pill__label {
+  display: none;
+}
+
+@media (max-width: 1099px) {
+  .outline-pill__label {
+    display: inline;
+  }
+}
+
+.outline-wrap:hover .outline-pill,
+.outline-pill:hover {
+  border-color: var(--color-accent-warm);
+  color: var(--color-text-primary);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+.outline-wrap.drawer-open .outline-pill {
+  border-color: var(--color-accent-warm);
+  color: var(--color-text-primary);
+}
+
+/* --- Shared list styles --- */
+.outline-panel__label {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-tertiary);
+  margin: 0 0 var(--space-3);
+  padding-left: var(--space-2);
+}
+
+.outline-panel__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.outline-panel__link {
+  display: block;
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: 5px var(--space-2);
+  border-left: 2px solid transparent;
+  border-radius: 0 4px 4px 0;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
+  word-break: break-word;
+}
+
+.outline-panel__link:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-tertiary, rgba(128, 128, 128, 0.08));
+}
+
+.outline-panel__link.is-active {
+  color: var(--color-accent-warm);
+  border-left-color: var(--color-accent-warm);
+}
+
+.outline-panel__link--sub {
+  padding-left: calc(var(--space-2) + 14px);
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* --- Backdrop (mobile click-close) --- */
+.outline-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: none;
+}
+
+.outline-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Shared Tablet + Mobile Base (<=1099px) --- */
+@media (max-width: 1099px) {
+  .outline-wrap {
+    left: auto;
+    right: 32px;
+    top: auto;
+    bottom: 24px;
+    transform: none;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .outline-wrap.is-active {
+    pointer-events: none;
+  }
+
+  .outline-pill {
+    width: auto;
+    height: auto;
+    padding: 9px 20px;
+    border-radius: var(--radius-full);
+    pointer-events: auto;
+  }
+
+  .outline-panel {
+    pointer-events: auto;
+  }
+}
+
+/* --- Tablet only (768px - 1099px) --- */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .outline-pill {
+    order: 1;
+  }
+
+  .outline-panel {
+    order: 0;
+    width: 220px;
+    margin-bottom: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--space-4);
+    background: var(--color-bg-secondary);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    transform: translateY(8px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .outline-wrap.drawer-open .outline-panel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .outline-backdrop {
+    display: block;
+    background: transparent;
+  }
+}
+
+/* --- Mobile only (<768px) --- */
+@media (max-width: 767px) {
+  .outline-wrap {
+    left: 0;
+    right: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  .outline-panel {
+    position: fixed;
+    inset: auto 0 0;
+    width: 100%;
+    max-height: 65vh;
+    border-radius: 20px 20px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    padding: 0 var(--space-5) calc(var(--space-5) + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition:
+      opacity 0.25s ease,
+      transform 0.3s var(--ease-out-expo);
+    overflow-y: auto;
+  }
+
+  .outline-panel::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    margin: var(--space-4) auto;
+    flex-shrink: 0;
+  }
+
+  .outline-wrap.drawer-open .outline-panel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .outline-backdrop {
+    display: block;
+  }
+
+  .outline-panel__link {
+    font-size: var(--text-sm);
+    padding: 10px var(--space-2);
+  }
+
+  .outline-panel__link--sub {
+    font-size: var(--text-xs);
+    padding-left: calc(var(--space-2) + 16px);
+  }
+}

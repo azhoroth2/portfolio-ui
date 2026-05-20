@@ -1,0 +1,64 @@
+/* ================================================================
+   BADGE / STATUS INDICATOR
+   Extracted from azhoroth2/Portfolio · main.css
+   ================================================================ */
+
+/* ---- Homepage status badge ---- */
+.home-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+.home-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+.home-badge__dot--success { background: var(--color-success); }
+.home-badge__dot--warning { background: var(--color-warning); }
+.home-badge__dot--accent  { background: var(--color-accent-warm); }
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ---- Tag / pill badge (project categories, skills) ---- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  background: var(--color-bg-surface);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition:
+    border-color var(--duration-fast) var(--ease-out-quart),
+    color var(--duration-fast) var(--ease-out-quart);
+}
+
+a.tag:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+}
+
+/* ---- Project category label (mono accent) ---- */
+.category-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent-warm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
